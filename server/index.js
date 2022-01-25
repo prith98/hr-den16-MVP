@@ -1,6 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 const path = require("path");
+const db = require('../database/index')
 const PORT = 3000;
 const app = express();
 
