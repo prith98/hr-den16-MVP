@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MainContext } from "./contexts/contexts.js";
 import pokedex from "pokemon-assets/assets/data/pokemon.json";
+import TeamList from './components/TeamList.js';
 
 const App = (props) => {
   const [trainerList, setTrainerList] = useState(null);
@@ -43,7 +44,7 @@ const App = (props) => {
     <MainContext.Provider value={{trainerList, setTrainerList, pokemonNames, setPokemonNames, filterTrainerList, setFilterTrainerList, Pokedex, setPokedex,
        teamCreatorModal, setTeamCreatorModal, currentPokemonLearnset, setCurrentPokemonLearnset, Types, setTypes, currentPokemonInfo, setCurrentPokemonInfo, shinyStatus, setShinyStatus}}>
       {teamCreatorModal ? <TeamCreator getMoves={getMoves} openModal={openModal} closeModal={closeModal}/> : <button onClick={openModal}> Create A Team</button>}
-
+      <TeamList />
     </MainContext.Provider>
     </div>
   );
