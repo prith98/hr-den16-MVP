@@ -4,10 +4,15 @@ const path = require("path");
 const db = require('../database/index')
 const PORT = 8080;
 const app = express();
+const config = {
+  headers: {
+  'Authorization': TOKEN,
+  'Content-Type': 'application/json'
+  }
+}
 
 app.use(express.json());
 app.use(express.urlencoded());
-
 
 app.post('/addTeam', db.addTeam);
 
@@ -21,6 +26,19 @@ app.get('/getTeams', (req, res) => {
       console.log(err);
     })
 });
+
+app.get('/pokeapi/moves', (req, res) => {
+  const {pokemon} = req.query;
+  axios
+    .get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, config)
+    .then((data) => {
+      res.send(data.data.moves);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err)
+    })
+})
 
 
 app.listen(PORT, () => {
