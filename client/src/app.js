@@ -5,6 +5,7 @@ import pokedex from "pokemon-assets/assets/data/pokemon.json";
 import TeamList from './components/TeamList.js';
 import TrainerSearchBar from './components/TrainerSearchBar.js';
 import PokemonSearchBar from './components/PokemonSearchBar.js';
+import PokedexViewer from './components/PokedexViewer.js';
 
 
 const App = (props) => {
@@ -47,6 +48,10 @@ const App = (props) => {
       })
   }
 
+  const toggleShiny = () => {
+    setShinyStatus(!shinyStatus)
+  }
+
   const getPokemonNames = () => {
     let pokemonName = Object.keys(Pokedex).filter((pokemon) => {
       return !(pokemon.includes('mega') || pokemon.includes('gmax'));
@@ -68,6 +73,7 @@ const App = (props) => {
       < TrainerSearchBar />
       < PokemonSearchBar />
       < TeamList getMoves={getMoves}/>
+      < PokedexViewer toggleShiny={toggleShiny}/>
     </MainContext.Provider>
     </div>
   );
