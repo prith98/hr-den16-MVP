@@ -4,3 +4,5 @@ node_modules
 # Github token file
 config.js
 
+#PNGs
+client/dist/**/*.png

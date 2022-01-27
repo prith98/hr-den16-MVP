@@ -81,7 +81,7 @@ const App = (props) => {
     <div className='main'>
     <MainContext.Provider value={{trainerList, setTrainerList, pokemonNames, setPokemonNames, filterTrainerList, setFilterTrainerList, Pokedex, setPokedex,
        teamCreatorModal, setTeamCreatorModal, currentPokemonLearnset, setCurrentPokemonLearnset, Types, setTypes, currentPokemonInfo, setCurrentPokemonInfo, shinyStatus, setShinyStatus}}>
-      {teamCreatorModal ? <TeamCreator getMoves={getMoves} openModal={openModal}/> : <button onClick={openModal}> Create A Team</button>}
+      {teamCreatorModal ? <TeamCreator getMoves={getMoves} getTeams={getTeams} openModal={openModal}/> : <button onClick={openModal}> Create A Team</button>}
       < TrainerSearchBar />
       < PokemonSearchBar />
       < PokedexSearchBar getMoves={getMoves} />

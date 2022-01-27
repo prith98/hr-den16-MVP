@@ -214,20 +214,20 @@ textarea {
 width: calc(100% - 12px);
 padding: 5px;
 }
-.item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+/* .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
 color:  #669999;
-}
+} */
 .item input:hover, .item select:hover, .item textarea:hover {
 border: 1px solid transparent;
 box-shadow: 0 0 3px 0  #669999;
-color: #669999;
+/* color: #669999; */
 }
 .item {
 position: relative;
 margin: 10px 0;
 }
 .item span {
-color: red;
+color: black;
 }
 .week {
 display:flex;
@@ -277,10 +277,10 @@ left: 0;
 width: 17px;
 height: 17px;
 border-radius: 50%;
-border: 2px solid #ccc;
+border: 2px solid black;
 }
 input[type=radio]:checked + label:before, label.radio:hover:before {
-border: 2px solid  #669999;
+border: 2px solid yellow;
 }
 label.radio:after {
 content: "";
@@ -289,7 +289,7 @@ top: 6px;
 left: 5px;
 width: 8px;
 height: 4px;
-border: 3px solid  #669999;
+border: 3px solid   black;
 border-top: none;
 border-right: none;
 transform: rotate(-45deg);
