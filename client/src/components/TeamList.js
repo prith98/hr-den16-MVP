@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable */
+
 import React, { useState, useEffect, useContext, useRef, Fragment, requireContext } from "react";
 import axios from "axios";
 import { MainContext } from "../contexts/contexts.js";
@@ -60,7 +63,7 @@ const TeamList = (props) => {
           const team = trainer.team;
           return (
             <Fragment>
-              <tr key={trainer.trainer}>
+              <tr>
                 <td key={trainer.trainer}><img src={trainer.imgurl}></img><div>{trainer.trainer}</div></td>
                 {team.map(pokemon => {
                   return  (

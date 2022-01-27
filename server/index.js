@@ -1,9 +1,14 @@
 const axios = require("axios");
 const express = require("express");
-const path = require("path");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 const db = require('../database/index')
-const PORT = 8080;
+const Schema = mongoose.Schema;
+const path = require("path");
+const PORT = 3000;
 const app = express();
+const {TOKEN, URL} = require('../config.js')
+
 const config = {
   headers: {
   'Authorization': TOKEN,
@@ -12,7 +17,7 @@ const config = {
 }
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.post('/addTeam', db.addTeam);
 
@@ -24,6 +29,19 @@ app.get('/getTeams', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+    })
+});
+
+app.get('/moves/:pokemon', (req, res) => {
+  axios
+    .get(req.originalUrl)
+    .then((data) => {
+      console.log('success')
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.send(err);
     })
 });
 
@@ -40,6 +58,9 @@ app.get('/pokeapi/moves', (req, res) => {
     })
 })
 
+app.get('/getTeam', (req, res) => {
+  Trainer.findById()
+})
 
 app.listen(PORT, () => {
   console.log(`I'm listening on port ${PORT}`);
